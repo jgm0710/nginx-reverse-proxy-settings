@@ -96,8 +96,8 @@ server {
 아래 설정 부분에서  
 
 - listen 443 ssl;   
-- ssl_certificate /etc/letsencrypt/archive/domain.com/fullchain1.pem;   
-- ssl_certificate_key /etc/letsencrypt/archive/domain.com/privkey1.pem;
+- ssl_certificate /etc/letsencrypt/live/domain.com/fullchain.pem;   
+- ssl_certificate_key /etc/letsencrypt/live/domain.com/privkey.pem;
 
 이 세줄은 certbot ssl 인증서 발급 전 nginx 실행 시 주석 처리가 필요한 부분입니다.  
 아래 실행 파트에서 좀 더 자세히 설명하겠습니다.
@@ -107,8 +107,8 @@ server {
     listen 443 ssl;
 
     # The location of the ssl pem key issued by certbot.
-    ssl_certificate /etc/letsencrypt/archive/domain.com/fullchain1.pem;
-    ssl_certificate_key /etc/letsencrypt/archive/domain.com/privkey1.pem;
+    ssl_certificate /etc/letsencrypt/live/domain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/domain.com/privkey.pem;
 
     server_name domain.com www.domain.com;
 
@@ -141,8 +141,8 @@ server {
     listen 443 ssl;
 
     # The location of the ssl pem key issued by certbot.
-    ssl_certificate /etc/letsencrypt/archive/domain.com/fullchain1.pem;
-    ssl_certificate_key /etc/letsencrypt/archive/domain.com/privkey1.pem;
+    ssl_certificate /etc/letsencrypt/live/domain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/domain.com/privkey.pem;
 
     server_name domain.com www.domain.com;
 
@@ -207,16 +207,16 @@ default.conf 파일에는 이미 ssl 인증서를 발급 받았다는 가정하�
 ```angular2html
     listen 443 ssl;
     # The location of the ssl pem key issued by certbot.
-    ssl_certificate /etc/letsencrypt/archive/dev-admin-lbs.indoorplus.io/fullchain1.pem;
-    ssl_certificate_key /etc/letsencrypt/archive/dev-admin-lbs.indoorplus.io/privkey1.pem;
+    ssl_certificate /etc/letsencrypt/live/dev-admin-lbs.indoorplus.io/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/dev-admin-lbs.indoorplus.io/privkey.pem;
 ```
 
 --->
 ```angular2html
     # listen 443 ssl;
     # The location of the ssl pem key issued by certbot.
-    # ssl_certificate /etc/letsencrypt/archive/dev-admin-lbs.indoorplus.io/fullchain1.pem;
-    # ssl_certificate_key /etc/letsencrypt/archive/dev-admin-lbs.indoorplus.io/privkey1.pem;
+    # ssl_certificate /etc/letsencrypt/live/dev-admin-lbs.indoorplus.io/fullchain.pem;
+    # ssl_certificate_key /etc/letsencrypt/live/dev-admin-lbs.indoorplus.io/privkey.pem;
 ```
    
 ## 2. init-letsencrypt.sh
@@ -240,15 +240,15 @@ init-letsencrypt.sh 를 실행시키면 ssl 인증서 발급에 필요한 conf �
 ```angular2html
     # listen 443 ssl;
     # The location of the ssl pem key issued by certbot.
-    # ssl_certificate /etc/letsencrypt/archive/dev-admin-lbs.indoorplus.io/fullchain1.pem;
-    # ssl_certificate_key /etc/letsencrypt/archive/dev-admin-lbs.indoorplus.io/privkey1.pem;
+    # ssl_certificate /etc/letsencrypt/live/dev-admin-lbs.indoorplus.io/fullchain.pem;
+    # ssl_certificate_key /etc/letsencrypt/live/dev-admin-lbs.indoorplus.io/privkey.pem;
 ```
 --->
 ```angular2html
     listen 443 ssl;
     # The location of the ssl pem key issued by certbot.
-    ssl_certificate /etc/letsencrypt/archive/dev-admin-lbs.indoorplus.io/fullchain1.pem;
-    ssl_certificate_key /etc/letsencrypt/archive/dev-admin-lbs.indoorplus.io/privkey1.pem;
+    ssl_certificate /etc/letsencrypt/live/dev-admin-lbs.indoorplus.io/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/dev-admin-lbs.indoorplus.io/privkey.pem;
 ```
 
 주석을 해제했다면, 실행되고 있는 nginx 를 종료합니다.
